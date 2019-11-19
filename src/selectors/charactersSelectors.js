@@ -1,1 +1,1 @@
-export const getCharacters = state => state.cards.list;
+export const getCharacters = state => state.characters.characters;
