@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateCharacters } from '../actions/charactersActions';
+import { updateCharactersPromise } from '../actions/charactersActions';
 import { getCharacters, getCharactersLoading } from '../selectors/charactersSelectors';
 import Characters from '../components/Characters';
 
@@ -10,7 +10,7 @@ const DisplayCharacters = () => {
   const dispatch = useDispatch();
   
   useEffect(() => {
-    dispatch(updateCharacters());
+    dispatch(updateCharactersPromise());
   }, []);
 
   if(loading) return <h1>Loading...</h1>;
