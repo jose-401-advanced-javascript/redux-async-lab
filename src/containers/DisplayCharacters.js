@@ -1,13 +1,19 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { getCharacters } from '../actions/charactersActions';
-import Character from '../components/Character';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateCharacters } from '../actions/charactersActions';
+import { getCharacters } from '../selectors/charactersSelectors';
+import Characters from '../components/Characters';
 
 const DisplayCharacters = () => {
   const characters = useSelector(getCharacters);
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(updateCharacters());
+  }, []);
 
   return (
-    <Character characters={characters} />
+    <Characters characters={characters} />
   );
 };
 
